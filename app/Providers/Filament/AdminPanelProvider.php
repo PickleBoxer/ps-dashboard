@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('/')
             ->login()
             ->passwordReset()
-            ->tenant(Team::class)
+            ->tenant(Team::class, slugAttribute: 'name')
             ->colors([
                 'primary' => Color::Sky,
                 'grey' => Color::Zinc,
