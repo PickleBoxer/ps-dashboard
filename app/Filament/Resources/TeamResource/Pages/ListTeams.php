@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\EmployeeResource\Pages;
+namespace App\Filament\Resources\TeamResource\Pages;
 
-use App\Filament\Resources\EmployeeResource;
+use App\Filament\Resources\TeamResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListEmployees extends ListRecords
+class ListTeams extends ListRecords
 {
-    protected static string $resource = EmployeeResource::class;
+    protected static string $resource = TeamResource::class;
 
     protected function getHeaderActions(): array
     {
