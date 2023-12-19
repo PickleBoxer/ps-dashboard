@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('app')
             ->path('/')
             ->login()
+            ->passwordReset()
             ->colors([
                 'primary' => Color::Sky,
                 'grey' => Color::Zinc,
