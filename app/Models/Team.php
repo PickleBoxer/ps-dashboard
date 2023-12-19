@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\HasCurrentTenantLabel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Team extends Model
+class Team extends Model implements HasCurrentTenantLabel
 {
     use HasFactory;
 
@@ -43,5 +44,10 @@ class Team extends Model
     public function members(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function getCurrentTenantLabel(): string
+    {
+        return 'Active team';
     }
 }
