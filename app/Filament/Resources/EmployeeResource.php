@@ -35,8 +35,7 @@ class EmployeeResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('active')
                     ->required(),
-                Forms\Components\Select::make('stores')
-                    ->multiple()
+                Forms\Components\CheckboxList::make('stores')
                     ->relationship('stores', 'name'),
 
             ]);
