@@ -1,5 +1,16 @@
 models:
-  # ...
+  Store:
+    name: string
+    description: string nullable
+    url: string
+    active: boolean
+    relationships:
+      belongsToMany: Employee
 
-controllers:
-  # ...
+  Employee:
+    name: string
+    email: string
+    notes: text nullable
+    active: boolean
+    relationships:
+      belongsToMany: Store
