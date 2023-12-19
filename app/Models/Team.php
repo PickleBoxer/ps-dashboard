@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Employee extends Model
+class Team extends Model
 {
     use HasFactory;
 
@@ -17,9 +18,7 @@ class Employee extends Model
      */
     protected $fillable = [
         'name',
-        'email',
-        'notes',
-        'active',
+        'description',
     ];
 
     /**
@@ -29,11 +28,15 @@ class Employee extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'active' => 'boolean',
     ];
 
-    public function stores(): BelongsToMany
+    public function store(): HasOne
     {
-        return $this->belongsToMany(Store::class);
+        return $this->hasOne(Store::class);
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }

@@ -3,14 +3,12 @@ models:
     name: string
     description: string nullable
     url: string
-    active: boolean
     relationships:
-      belongsToMany: Employee
+      belongsTo: Team
 
-  Employee:
+  Team:
     name: string
-    email: string
-    notes: text nullable
-    active: boolean
+    description: string nullable
     relationships:
-      belongsToMany: Store
+      hasOne: Store
+      belongsToMany: User

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('url');
-            $table->boolean('active');
+            $table->foreignId('team_id');
             $table->timestamps();
         });
     }

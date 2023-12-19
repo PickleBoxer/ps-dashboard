@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Store extends Model
 {
@@ -19,7 +19,7 @@ class Store extends Model
         'name',
         'description',
         'url',
-        'active',
+        'team_id',
     ];
 
     /**
@@ -29,11 +29,11 @@ class Store extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'active' => 'boolean',
+        'team_id' => 'integer',
     ];
 
-    public function employees(): BelongsToMany
+    public function team(): BelongsTo
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsTo(Team::class);
     }
 }
