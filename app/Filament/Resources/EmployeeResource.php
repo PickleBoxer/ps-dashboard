@@ -59,6 +59,8 @@ class EmployeeResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                // Additional columns with relations
+                Tables\Columns\TextColumn::make('stores.name'),
             ])
             ->filters([
                 //
