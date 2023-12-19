@@ -4,7 +4,7 @@ models:
     description: string nullable
     url: string
     relationships:
-      belongsTo: Team
+      hasOne: Team
 
   Team:
     name: string

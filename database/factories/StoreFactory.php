@@ -5,7 +5,6 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Store;
-use App\Models\Team;
 
 class StoreFactory extends Factory
 {
@@ -25,7 +24,6 @@ class StoreFactory extends Factory
             'name' => $this->faker->name(),
             'description' => $this->faker->text(),
             'url' => $this->faker->url(),
-            'team_id' => Team::factory(),
         ];
     }
 }

@@ -31,9 +31,6 @@ class StoreResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('team_id')
-                    ->relationship('team', 'name')
-                    ->required(),
             ]);
     }
 
@@ -47,9 +44,6 @@ class StoreResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('url')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('team.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
