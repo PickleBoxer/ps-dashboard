@@ -63,6 +63,7 @@ class TeamResource extends Resource
                 Tables\Columns\TextColumn::make('store.name')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('users_count')->counts('users'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
