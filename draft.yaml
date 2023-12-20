@@ -9,6 +9,6 @@ models:
   Team:
     name: string
     description: string nullable
+    store_id: id foreign
     relationships:
-      hasOne: Store
       belongsToMany: User

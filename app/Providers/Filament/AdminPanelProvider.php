@@ -25,11 +25,11 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->id('app')
-            ->path('/')
+            ->id('admin')
+            ->path('admin')
             ->login()
             ->passwordReset()
-            ->tenant(Team::class, slugAttribute: 'name')
+            //->tenant(Team::class, slugAttribute: 'name')
             ->colors([
                 'primary' => Color::Sky,
                 'grey' => Color::Zinc,

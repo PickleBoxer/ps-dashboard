@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Filament\Models\Contracts\HasCurrentTenantLabel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Team extends Model implements HasCurrentTenantLabel
+class Team extends Model
 {
     use HasFactory;
 
@@ -20,6 +19,7 @@ class Team extends Model implements HasCurrentTenantLabel
     protected $fillable = [
         'name',
         'description',
+        'store_id',
     ];
 
     /**
@@ -29,25 +29,16 @@ class Team extends Model implements HasCurrentTenantLabel
      */
     protected $casts = [
         'id' => 'integer',
+        'store_id' => 'integer',
     ];
-
-    public function store(): HasOne
-    {
-        return $this->hasOne(Store::class);
-    }
 
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
 
-    public function members(): BelongsToMany
+    public function store(): BelongsTo
     {
-        return $this->belongsToMany(User::class);
-    }
-
-    public function getCurrentTenantLabel(): string
-    {
-        return 'Active team';
+        return $this->belongsTo(Store::class);
     }
 }

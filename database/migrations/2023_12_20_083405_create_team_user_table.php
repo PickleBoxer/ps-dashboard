@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('team_user', function (Blueprint $table) {
             $table->foreignId('team_id');
             $table->foreignId('user_id');
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

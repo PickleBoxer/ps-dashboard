@@ -1,12 +1,12 @@
 created:
     - database/factories/StoreFactory.php
     - database/factories/TeamFactory.php
-    - database/migrations/2023_12_19_130022_create_stores_table.php
-    - database/migrations/2023_12_19_130023_create_teams_table.php
-    - database/migrations/2023_12_19_130024_create_team_user_table.php
+    - database/migrations/2023_12_20_083403_create_stores_table.php
+    - database/migrations/2023_12_20_083404_create_teams_table.php
+    - database/migrations/2023_12_20_083405_create_team_user_table.php
     - app/Models/Store.php
     - app/Models/Team.php
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Store: { name: string, description: 'string nullable', url: string, relationships: { hasOne: Team } }
-    Team: { name: string, description: 'string nullable', relationships: { hasOne: Store, belongsToMany: User } }
+    Team: { name: string, description: 'string nullable', store_id: 'id foreign', relationships: { belongsToMany: User } }
