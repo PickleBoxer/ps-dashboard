@@ -10,7 +10,9 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
+use App\Filament\App\Pages\Tenancy\RegisterTeam;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -28,6 +30,8 @@ class AppPanelProvider extends PanelProvider
             ->path('app')
             ->login()
             ->tenant(Team::class)
+            ->tenantRegistration(RegisterTeam::class)
+            ->tenantProfile(EditTeamProfile::class)
             ->colors([
                 'primary' => Color::Amber,
             ])
