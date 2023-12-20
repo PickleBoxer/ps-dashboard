@@ -26,12 +26,16 @@ class ListUsers extends ListRecords
         return [
             'all' => Tab::make()
                 ->icon('heroicon-m-user-group')
-                ->iconPosition(IconPosition::After),
+                ->iconPosition(IconPosition::Before),
             'active' => Tab::make()
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('active', true))
+                ->icon('heroicon-m-check-circle')
+                ->iconPosition(IconPosition::Before)
                 ->badge(User::query()->where('active', true)->count()),
             'inactive' => Tab::make()
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('active', false))
+                ->icon('heroicon-m-no-symbol')
+                ->iconPosition(IconPosition::Before)
                 ->badge(User::query()->where('active', false)->count()),
         ];
     }
