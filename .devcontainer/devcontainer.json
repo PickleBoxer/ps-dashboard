@@ -13,7 +13,8 @@
 				"xdebug.php-pack",
 				"bmewburn.vscode-intelephense-client",
 				"MehediDracula.php-namespace-resolver",
-				"onecentlin.laravel-extension-pack"
+				"onecentlin.laravel-extension-pack",
+				"streetsidesoftware.code-spell-checker"
 			],
 			"settings": {}
 		}
