@@ -1,12 +1,32 @@
 created:
     - database/factories/StoreFactory.php
     - database/factories/TeamFactory.php
-    - database/migrations/2023_12_20_083403_create_stores_table.php
-    - database/migrations/2023_12_20_083404_create_teams_table.php
-    - database/migrations/2023_12_20_083405_create_team_user_table.php
+    - database/factories/CountryFactory.php
+    - database/factories/StateFactory.php
+    - database/factories/CityFactory.php
+    - database/factories/DepartmentFactory.php
+    - database/factories/EmployeeFactory.php
+    - database/migrations/2023_12_20_142720_create_stores_table.php
+    - database/migrations/2023_12_20_142721_create_teams_table.php
+    - database/migrations/2023_12_20_142722_create_countries_table.php
+    - database/migrations/2023_12_20_142723_create_states_table.php
+    - database/migrations/2023_12_20_142724_create_cities_table.php
+    - database/migrations/2023_12_20_142725_create_departments_table.php
+    - database/migrations/2023_12_20_142726_create_employees_table.php
+    - database/migrations/2023_12_20_142727_create_team_user_table.php
     - app/Models/Store.php
     - app/Models/Team.php
+    - app/Models/Country.php
+    - app/Models/State.php
+    - app/Models/City.php
+    - app/Models/Department.php
+    - app/Models/Employee.php
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Store: { name: string, description: 'string nullable', url: string, relationships: { hasOne: Team } }
     Team: { name: string, description: 'string nullable', store_id: 'id foreign', relationships: { belongsToMany: User } }
+    Country: { id: id, name: string, iso3: string, iso2: string, phonecode: string, capital: string, currency: string, currency_symbol: string, tld: string, native: 'string nullable', region: string, subregion: string, timezones: text, translations: 'text nullable', latitude: text, longitude: text, emoji: text, emojiU: text, flag: 'boolean default:false', wikiDataId: 'text nullable', timestamps: timestamps }
+    State: { id: id, name: string, country_id: 'id foreign:countries.id', country_code: string, fips_code: 'string nullable', iso2: string, latitude: 'string nullable', longitude: 'string nullable', timestamps: timestamps, flag: 'boolean default:false', wikiDataId: 'text nullable' }
+    City: { id: id, name: string, state_id: 'id foreign:states.id', state_code: string, country_id: 'id foreign:countries.id', country_code: string, latitude: 'string nullable', longitude: 'string nullable', timestamps: timestamps, flag: 'boolean default:false', wikiDataId: 'string nullable' }
+    Department: { id: id, name: string, description: 'string nullable', timestamps: timestamps, relationships: { hasMany: Employee } }
+    Employee: { id: id, first_name: string, last_name: string, email: string, phone: 'string nullable', position: 'string nullable', department_id: 'id foreign:departments.id', salary: 'integer nullable', hire_date: 'timestamp nullable', state_id: 'id foreign:states.id', city_id: 'id foreign:cities.id', country_id: 'id foreign:countries.id', timestamps: timestamps }
