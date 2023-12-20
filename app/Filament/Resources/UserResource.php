@@ -48,6 +48,9 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('teams')
+                    ->multiple()
+                    ->relationship('teams', 'name'),
             ]);
     }
 
