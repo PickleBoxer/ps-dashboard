@@ -19,6 +19,15 @@ class StoreResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
+    //protected static ?string $navigationLabel = 'Stores';
+
+    //protected static ?string $modelLabel = 'Our Stores';
+
+    //protected static ?string $slug = 'stores';
+
+    // TO Group elements in the sidebar
+    protected static ?string $navigationGroup = 'System Management';
+
     public static function form(Form $form): Form
     {
         return $form

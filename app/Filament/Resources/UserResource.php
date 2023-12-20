@@ -19,6 +19,15 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
+    //protected static ?string $navigationLabel = 'Users';
+
+    //protected static ?string $modelLabel = 'Our Users';
+
+    //protected static ?string $slug = 'users';
+
+    // TO Group elements in the sidebar
+    protected static ?string $navigationGroup = 'System Management';
+
     public static function form(Form $form): Form
     {
         return $form

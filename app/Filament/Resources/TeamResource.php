@@ -19,6 +19,15 @@ class TeamResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
+    //protected static ?string $navigationLabel = 'Teams';
+
+    //protected static ?string $modelLabel = 'Our Teams';
+
+    //protected static ?string $slug = 'teams';
+
+    // TO Group elements in the sidebar
+    protected static ?string $navigationGroup = 'System Management';
+
     public static function form(Form $form): Form
     {
         return $form
