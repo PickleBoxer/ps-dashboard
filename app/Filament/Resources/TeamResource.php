@@ -7,11 +7,16 @@ use App\Models\Team;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Faker\Provider\ar_EG\Text;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
 use App\Filament\Resources\TeamResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\TeamResource\RelationManagers;
+use Illuminate\Database\Eloquent\Model;
 
 class TeamResource extends Resource
 {
@@ -88,6 +93,23 @@ class TeamResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Store Information')
+                    ->columns(2)
+                    ->schema([
+                        TextEntry::make('name')->label('Team Name'),
+                        TextEntry::make('store.name')->label('Store ID'),
+                        TextEntry::make('description')->label('Team Description'),
+                        TextEntry::make('user_count')->label('User Count')->state(function (Model $record): int {
+                            return $record->users()->count();
+                        }),
+                    ]),
             ]);
     }
 
