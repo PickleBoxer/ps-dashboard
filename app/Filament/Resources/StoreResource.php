@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\StoreResource\Pages;
-use App\Filament\Resources\StoreResource\RelationManagers;
-use App\Models\Store;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Store;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use App\Filament\Resources\StoreResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\StoreResource\RelationManagers;
 
 class StoreResource extends Resource
 {
@@ -76,6 +79,20 @@ class StoreResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Store Information')
+                    ->columns(2)
+                    ->schema([
+                        TextEntry::make('name')->label('Store Name'),
+                        TextEntry::make('url')->label('Store URL'),
+                        TextEntry::make('description')->label('Store Description'),
+                    ]),
             ]);
     }
 
