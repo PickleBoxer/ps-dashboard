@@ -9,6 +9,9 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\Filter;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -83,10 +86,14 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\IconColumn::make('active')
-                    ->boolean(),
+                    ->boolean()
+                    ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('Team')
+                    ->relationship('teams', 'name'),
+                Filter::make('active')
+                    ->query(fn (Builder $query): Builder => $query->where('active', true)),
             ])
             ->actions([
                 // if view action is not defined, the view button will not be shown
