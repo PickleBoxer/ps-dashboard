@@ -25,8 +25,11 @@ class StoreResource extends Resource
 
     //protected static ?string $slug = 'stores';
 
-    // TO Group elements in the sidebar
+    // Group elements in the sidebar
     protected static ?string $navigationGroup = 'System Management';
+
+    // Sort elements in the sidebar
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

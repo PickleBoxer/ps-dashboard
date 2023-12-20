@@ -25,8 +25,12 @@ class UserResource extends Resource
 
     //protected static ?string $slug = 'users';
 
-    // TO Group elements in the sidebar
+    // Group elements in the sidebar
     protected static ?string $navigationGroup = 'System Management';
+
+    // Sort elements in the sidebar
+    protected static ?int $navigationSort = 3;
+
 
     public static function form(Form $form): Form
     {
