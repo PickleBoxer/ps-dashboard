@@ -89,6 +89,8 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
+                // if view action is not defined, the view button will not be shown
+                // modal view if getPages()['view'] is not defined
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
