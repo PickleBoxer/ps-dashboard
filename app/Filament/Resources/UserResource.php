@@ -48,6 +48,10 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
+                    // don't want to overwrite the existing password if the field is empty
+                    ->dehydrated(fn ($state) => filled($state))
+                    // only required on create
+                    ->required(fn (string $context): bool => $context === 'create')
                     ->maxLength(255),
                 Forms\Components\Toggle::make('active')
                     ->required(),
