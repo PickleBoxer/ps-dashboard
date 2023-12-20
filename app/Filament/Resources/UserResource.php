@@ -49,6 +49,8 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Toggle::make('active')
+                    ->required(),
                 Forms\Components\Select::make('teams')
                     ->multiple()
                     ->relationship('teams', 'name'),
@@ -76,6 +78,8 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\IconColumn::make('active')
+                    ->boolean(),
             ])
             ->filters([
                 //
