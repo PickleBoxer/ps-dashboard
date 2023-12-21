@@ -17,7 +17,11 @@ class EmployeeResource extends Resource
 {
     protected static ?string $model = Employee::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    protected static ?string $navigationGroup = 'Employee Management';
+
+    protected static ?string $recordTitleAttribute = 'first_name';
 
     public static function form(Form $form): Form
     {
@@ -29,7 +33,7 @@ class EmployeeResource extends Resource
                 Forms\Components\Select::make('state_id')
                     ->relationship('state', 'name')
                     ->required(),
-                // TODO: Fix this employee edit doesn't work/opens
+                // TODO: Fix this too slow query
                 Forms\Components\Select::make('city_id')
                     ->relationship('city', 'name')
                     ->required(),

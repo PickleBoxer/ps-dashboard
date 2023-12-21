@@ -34,7 +34,7 @@ class TeamResource extends Resource
     protected static ?string $navigationGroup = 'System Management';
 
     // Sort elements in the sidebar
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

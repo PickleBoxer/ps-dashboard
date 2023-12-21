@@ -32,7 +32,7 @@ class StoreResource extends Resource
     protected static ?string $navigationGroup = 'System Management';
 
     // Sort elements in the sidebar
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
