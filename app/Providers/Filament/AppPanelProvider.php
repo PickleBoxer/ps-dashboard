@@ -27,8 +27,12 @@ class AppPanelProvider extends PanelProvider
     {
         return $panel
             ->id('app')
-            ->path('app')
+            ->path('/')
             ->login()
+            //->registration()
+            ->passwordReset()
+            ->emailVerification()
+            ->profile()
             ->tenant(Team::class)
             ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
