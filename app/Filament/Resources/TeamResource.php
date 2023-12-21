@@ -58,6 +58,9 @@ class TeamResource extends Resource
                             ->required(),
                     ])
                     ->columns(2),
+                Forms\Components\TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -72,6 +75,8 @@ class TeamResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
