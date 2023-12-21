@@ -42,4 +42,9 @@ class Team extends Model
     {
         return $this->belongsTo(Store::class);
     }
+
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
