@@ -54,8 +54,7 @@ class TeamResource extends Resource
                     ->description('Connect this team to a store')
                     ->schema([
                         Forms\Components\Select::make('store_id')
-                            ->relationship('store', 'name')
-                            ->required(),
+                            ->relationship('store', 'name'),
                     ])
                     ->columns(2),
                 Forms\Components\TextInput::make('slug')
