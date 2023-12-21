@@ -29,6 +29,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasTenant
         'email',
         'password',
         'active',
+        'isAdmin',
     ];
 
     /**
@@ -78,5 +79,10 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasTenant
     public function canAccessTenant(Model $tenant): bool
     {
         return $this->teams->contains($tenant);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->is_admin;
     }
 }

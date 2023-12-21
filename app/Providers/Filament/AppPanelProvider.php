@@ -30,7 +30,6 @@ class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path('/')
             ->login()
-            //->registration()
             ->passwordReset()
             ->emailVerification()
             ->profile()
@@ -38,7 +37,8 @@ class AppPanelProvider extends PanelProvider
                 MenuItem::make()
                     ->label('Admin Panel')
                     ->icon('heroicon-o-cog-6-tooth')
-                    ->url('/admin'),
+                    ->url('/admin')
+                    ->visible(fn (): bool => auth()->user()->isAdmin()),
             ])
             ->tenant(Team::class, slugAttribute: 'slug')
             ->tenantRegistration(RegisterTeam::class)

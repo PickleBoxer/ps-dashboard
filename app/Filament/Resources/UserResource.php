@@ -61,6 +61,8 @@ class UserResource extends Resource
                 Forms\Components\Select::make('teams')
                     ->multiple()
                     ->relationship('teams', 'name'),
+                Forms\Components\Toggle::make('is_admin')
+                    ->required(),
             ]);
     }
 
