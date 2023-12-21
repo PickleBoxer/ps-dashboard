@@ -9,6 +9,7 @@ models:
   Team:
     name: string
     description: string nullable
+    slug: string
     store_id: id foreign nullable
     relationships:
       belongsToMany: User

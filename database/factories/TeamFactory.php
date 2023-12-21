@@ -24,6 +24,7 @@ class TeamFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->text(),
+            'slug' => $this->faker->slug(),
             'store_id' => Store::factory(),
         ];
     }

@@ -6,14 +6,14 @@ created:
     - database/factories/CityFactory.php
     - database/factories/DepartmentFactory.php
     - database/factories/EmployeeFactory.php
-    - database/migrations/2023_12_21_092011_create_stores_table.php
-    - database/migrations/2023_12_21_092012_create_teams_table.php
-    - database/migrations/2023_12_21_092013_create_countries_table.php
-    - database/migrations/2023_12_21_092014_create_states_table.php
-    - database/migrations/2023_12_21_092015_create_cities_table.php
-    - database/migrations/2023_12_21_092016_create_departments_table.php
-    - database/migrations/2023_12_21_092017_create_employees_table.php
-    - database/migrations/2023_12_21_092018_create_team_user_table.php
+    - database/migrations/2023_12_21_112034_create_stores_table.php
+    - database/migrations/2023_12_21_112035_create_teams_table.php
+    - database/migrations/2023_12_21_112036_create_countries_table.php
+    - database/migrations/2023_12_21_112037_create_states_table.php
+    - database/migrations/2023_12_21_112038_create_cities_table.php
+    - database/migrations/2023_12_21_112039_create_departments_table.php
+    - database/migrations/2023_12_21_112040_create_employees_table.php
+    - database/migrations/2023_12_21_112041_create_team_user_table.php
     - app/Models/Store.php
     - app/Models/Team.php
     - app/Models/Country.php
@@ -24,7 +24,7 @@ created:
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Store: { name: string, description: 'string nullable', url: string, relationships: { hasOne: Team } }
-    Team: { name: string, description: 'string nullable', store_id: 'id foreign nullable', relationships: { belongsToMany: User } }
+    Team: { name: string, description: 'string nullable', slug: string, store_id: 'id foreign nullable', relationships: { belongsToMany: User } }
     Country: { id: id, name: string, iso3: string, iso2: string, phonecode: string, capital: string, currency: string, currency_symbol: string, tld: string, native: 'string nullable', region: string, subregion: string, timezones: text, translations: 'text nullable', latitude: text, longitude: text, emoji: text, emojiU: text, flag: 'boolean default:false', wikiDataId: 'text nullable', timestamps: timestamps }
     State: { id: id, name: string, country_id: 'id foreign:countries.id', country_code: string, fips_code: 'string nullable', iso2: string, latitude: 'string nullable', longitude: 'string nullable', timestamps: timestamps, flag: 'boolean default:false', wikiDataId: 'text nullable' }
     City: { id: id, name: string, state_id: 'id foreign:states.id', state_code: string, country_id: 'id foreign:countries.id', country_code: string, latitude: 'string nullable', longitude: 'string nullable', timestamps: timestamps, flag: 'boolean default:false', wikiDataId: 'string nullable' }
