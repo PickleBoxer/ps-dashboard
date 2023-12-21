@@ -38,7 +38,7 @@ class AppPanelProvider extends PanelProvider
                     ->label('Admin Panel')
                     ->icon('heroicon-o-cog-6-tooth')
                     ->url('/admin')
-                    ->visible(fn (): bool => auth()->user()->isAdmin()),
+                    ->visible(fn (): bool => auth()->user()->is_admin),
             ])
             ->tenant(Team::class, slugAttribute: 'slug')
             ->tenantRegistration(RegisterTeam::class)

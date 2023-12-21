@@ -80,9 +80,4 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasTenant
     {
         return $this->teams->contains($tenant);
     }
-
-    public function isAdmin(): bool
-    {
-        return $this->is_admin;
-    }
 }
