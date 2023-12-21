@@ -9,7 +9,7 @@ models:
   Team:
     name: string
     description: string nullable
-    store_id: id foreign
+    store_id: id foreign nullable
     relationships:
       belongsToMany: User
 
@@ -66,6 +66,7 @@ models:
     id: id
     name: string
     description: string nullable
+    team_id: id foreign:teams.id
     timestamps: timestamps
     relationships:
       hasMany: Employee
@@ -78,6 +79,7 @@ models:
     phone: string nullable
     position: string nullable
     department_id: id foreign:departments.id
+    team_id: id foreign:teams.id
     salary: integer nullable
     hire_date: timestamp nullable
     state_id: id foreign:states.id

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->foreignId('store_id')->constrained();
+            $table->foreignId('store_id')->nullable()->constrained();
             $table->timestamps();
         });
 

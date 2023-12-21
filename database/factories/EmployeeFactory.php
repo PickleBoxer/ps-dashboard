@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\State;
+use App\Models\Team;
 
 class EmployeeFactory extends Factory
 {
@@ -31,6 +32,7 @@ class EmployeeFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'position' => $this->faker->word(),
             'department_id' => Department::factory(),
+            'team_id' => Team::factory(),
             'salary' => $this->faker->numberBetween(-10000, 10000),
             'hire_date' => $this->faker->dateTime(),
             'state_id' => State::factory(),

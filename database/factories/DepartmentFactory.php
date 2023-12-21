@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Department;
+use App\Models\Team;
 
 class DepartmentFactory extends Factory
 {
@@ -23,6 +24,7 @@ class DepartmentFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->text(),
+            'team_id' => Team::factory(),
         ];
     }
 }

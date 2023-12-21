@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('position')->nullable();
             $table->foreignId('department_id')->constrained();
+            $table->foreignId('team_id')->constrained();
             $table->integer('salary')->nullable();
             $table->timestamp('hire_date')->nullable();
             $table->foreignId('state_id')->constrained();

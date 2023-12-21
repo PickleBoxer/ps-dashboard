@@ -22,6 +22,7 @@ class Employee extends Model
         'phone',
         'position',
         'department_id',
+        'team_id',
         'salary',
         'hire_date',
         'state_id',
@@ -37,6 +38,7 @@ class Employee extends Model
     protected $casts = [
         'id' => 'integer',
         'department_id' => 'integer',
+        'team_id' => 'integer',
         'hire_date' => 'timestamp',
         'state_id' => 'integer',
         'city_id' => 'integer',
@@ -46,6 +48,11 @@ class Employee extends Model
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function team(): BelongsTo
+    {
+        return $this->belongsTo(Team::class);
     }
 
     public function state(): BelongsTo
