@@ -30,6 +30,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->passwordReset()
+            ->emailVerification()
+            ->profile()
             ->userMenuItems([
                 MenuItem::make()
                     ->label('Dashboard')
