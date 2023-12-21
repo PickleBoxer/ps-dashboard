@@ -36,6 +36,8 @@ class EmployeeResource extends Resource
                 // TODO: Fix this too slow query
                 Forms\Components\Select::make('city_id')
                     ->relationship('city', 'name')
+                    // Fixed the too slow query
+                    ->searchable()
                     ->required(),
                 Forms\Components\Select::make('country_id')
                     ->relationship('country', 'name')
