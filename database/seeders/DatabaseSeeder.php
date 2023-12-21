@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\User::factory()->create([
              'name' => 'Admin',
              'email' => 'admin@admin.com',
+             'is_admin' => true,
          ]);
 
         $this->call(CountriesTableSeeder::class);
