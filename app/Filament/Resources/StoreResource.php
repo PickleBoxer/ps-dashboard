@@ -34,6 +34,16 @@ class StoreResource extends Resource
     // Sort elements in the sidebar
     protected static ?int $navigationSort = 1;
 
+    /**
+     * Get the navigation badge for the store resource.
+     *
+     * @return string|null The navigation badge count.
+     */
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
